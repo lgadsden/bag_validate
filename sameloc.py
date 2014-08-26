@@ -5,7 +5,7 @@ location = r"D:\OCR_FIN\SPEC\MV BULLETINS"
 			
 def move_sameloc(path): #moves folders that were not bagged (do not have a data folder)
 	for item in os.listdir(path):
-		ofolder = str(location) + "\\" + str(item)
+		ofolder = "%s\\%s" %(location, item)
 		imagefolder = ofolder + "\\IMAGES_METADATA"
 		datafolder = ofolder + "\\data"
 		
