@@ -1,7 +1,7 @@
 import os
 import shutil 
 
-location = r"D:\OCR_FIN\SPEC\MV BULLETINS"
+location = r""
 			
 def move_sameloc(path): #moves folders that were not bagged (do not have a data folder)
 	for item in os.listdir(path):
