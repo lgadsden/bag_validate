@@ -1,23 +1,23 @@
 import os
 import shutil 
 
-location = r"D:\OCR_FIN\SPEC\MV BULLETINS"
+location = r"C:\Users\Lawrence G\Desktop\cheetos"
 
 #deletes the txt files that bagger creates inside the main folder
 def delbaginfo(path): # replace path with project folder location
     for root, dirs, files in os.walk(path): 
         for currentFile in files: #iterates through all of the files. finds and deletes bagger files. 
 			if currentFile == "bagit.txt":
-				os.remove("%s\\bagit.txt")%(root)
+				os.remove(str(root) + "\\bagit.txt")
 				print "bag file removed"
 			elif currentFile == "bag-info.txt":
-				os.remove("%s\\bag-info.txt")%(root)
+				os.remove(str(root) + "\\bag-info.txt")
 				print "bag file removed"
 			elif currentFile == "manifest-md5.txt":
-				os.remove("%s\\manifest-md5.txt")%(root)
+				os.remove(str(root) + "\\manifest-md5.txt")
 				print "bag file removed"
 			elif currentFile == "tagmanifest-md5.txt":
-				os.remove("%s\\tagmanifest-md5.txt")%(root)
+				os.remove(str(root) + "\\tagmanifest-md5.txt")
 				print "bag file removed"
 				
 # creates an a folder that combines images and metadata
@@ -34,7 +34,7 @@ def move_folderup(path):
 	for item in os.listdir(path):
 		ofolder = "%s\\%s" %(location,item)
 		imagefolder = "%s\\IMAGES_METADATA" %(ofolder)
-		datafolder = "%s\\data" %(data)
+		datafolder = "%s\\data" %(ofolder)
 		if os.path.isdir(datafolder):
 			for folder in os.listdir(datafolder):
 				old_loc = "%s\\%s" %(datafolder,folder)
@@ -71,7 +71,7 @@ def move_pdf(path):
 		ofolder = "%s\\%s" %(path, folder)
 		for subfolder in os.listdir(ofolder):
 			if subfolder == 'PDF':
-				pdf_folder = "%s\\PDF" (ofolder)
+				pdf_folder = "%s\\PDF" %(ofolder)
 				for PDF in os.listdir(pdf_folder):
 					access_loc = "%s\\ACCESS_PDF" %(ofolder)
 					if PDF.endswith("_ST.pdf"):
@@ -107,9 +107,9 @@ def move_pdf(path):
 
 
 
-#delbaginfo(location)
-#create_imagefolder(location)
-#move_folderup(location)
-#deletedata(location)
-#move_pdf(location)
+delbaginfo(location)
+create_imagefolder(location)
+move_folderup(location)
+deletedata(location)
+move_pdf(location)
 
